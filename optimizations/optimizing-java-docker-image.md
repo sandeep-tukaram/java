@@ -29,16 +29,16 @@ total 16
 drwxr-xr-x  5 sandeep  staff   160 Apr  5 08:39 .
 drwxr-xr-x  3 sandeep  staff    96 Apr  5 00:16 ..
 -rw-r--r--@ 1 sandeep  staff    25 Apr  5 00:50 MANIFEST.MF
--rw-r--r--  1 sandeep  staff  1015 Apr  5 08:39 hello.jar
+-rw-r--r--  1 sandeep  staff  1165 Apr  5 08:39 hello.jar
 drwxr-xr-x  4 sandeep  staff   128 Apr  5 08:39 hello1
 
 $ ls -lh hello1 
 total 16
--rw-r--r--  1 sandeep  staff   262B Apr  5 08:39 hello.class
--rw-r--r--@ 1 sandeep  staff   147B Apr  5 01:03 hello.java
+-rw-r--r--  1 sandeep  staff   467B Apr  5 16:38 hello.class
+-rw-r--r--@ 1 sandeep  staff   178B Apr  5 16:38 hello.java
 ```
 
-Our entire application is only a few hundred bytes. The class file is 262 bytes and the source code is 147 bytes. Here comes the packaging overheads. The jar, native java packaging, makes it 1000 bytes. Still reasonable compared to what follows. This tiny app will end up in a container hundreds of megabytes in size. Talk about overhead! 😮
+Our entire application is only a few hundred bytes. The class file is 467 bytes and the source code is 178 bytes. Here comes the packaging overheads. The jar is 1165 bytes. Still reasonable compared to what follows. This tiny app will end up in a container hundreds of megabytes in size. Talk about overhead! 😮
 
 ## The "I Just Need It Working" Approach
 
