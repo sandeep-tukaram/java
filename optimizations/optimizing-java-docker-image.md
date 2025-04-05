@@ -51,7 +51,22 @@ COPY hello.jar /app/
 ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
-This works! But... yikes... we're looking at a 350MB+ image. That's like using a moving truck to deliver a postcard. 🚚
+Lets build an image
+
+```
+$ docker build . -t hello1-java
+[+] Building 180.7s (8/8) FINISHED                                                                                 docker:desktop-linux
+...
+ => [1/3] FROM docker.io/library/eclipse-temurin:21-jdk@sha256:6634936b2e8d90ee16eeb94420d71cd5e36ca677a4cf795a9ee1ee6e94379988  177.3s
+
+$ docker images 
+REPOSITORY    TAG       IMAGE ID       CREATED              SIZE
+hello1-java   latest    7104f6490ae9   About a minute ago   704MB
+```
+
+Yikes! We're looking at a 704MB+ image and more than 3 minutes of build time. That's like using a moving truck to deliver a postcard. And a damn slow one.  🚚  
+
+Imagine yourself in a prodcution scenario, on a call with who not's of managers constantly quering - "How much longer?" All that  hype around Docker for this !?
 
 ## Let's Trim Some Fat: Alpine Version
 
