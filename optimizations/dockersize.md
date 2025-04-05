@@ -19,6 +19,28 @@ public class hello {
 
 Nothing fancy here - just greeting the world and letting everyone know we're on an optimization mission today! That `flush()` call makes sure our message appears immediately in container logs.
 
+``` snapshot of local folder
+
+$ ls -la
+total 16
+drwxr-xr-x  5 sandeep  staff   160 Apr  5 08:39 .
+drwxr-xr-x  3 sandeep  staff    96 Apr  5 00:16 ..
+-rw-r--r--@ 1 sandeep  staff    25 Apr  5 00:50 MANIFEST.MF
+-rw-r--r--  1 sandeep  staff  1015 Apr  5 08:39 hello.jar
+drwxr-xr-x  4 sandeep  staff   128 Apr  5 08:39 hello1
+
+$ ls -la hello1
+total 16
+drwxr-xr-x  4 sandeep  staff  128 Apr  5 08:39 .
+drwxr-xr-x  5 sandeep  staff  160 Apr  5 08:39 ..
+-rw-r--r--  1 sandeep  staff  262 Apr  5 08:39 hello.class
+-rw-r--r--@ 1 sandeep  staff  147 Apr  5 01:03 hello.java
+
+```
+1KB jar created containing little over 500B of files - java, class, manifest etc. Looks great. 
+Time to package it into a container!
+
+
 ## The "I Just Need It Working" Approach
 
 Most of us start here - grab a standard Java image and get things running:
