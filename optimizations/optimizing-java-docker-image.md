@@ -203,7 +203,7 @@ Did we go back to jdk? Yes we did! However, we still managed to end up with a sm
 ## Oops! Things I Learned the Hard Way
 This journey wasn't without a few facepalm moments:
 
-* **Compression Confusion**: I initially tried `--compress=9` with jlink (more is better, right?). Turns out it only accepts values 0-2,  compress=<0|1|2>. Whoops! 
+* **Compression Confusion**: I initially tried `--compress=9` with jlink (more is better, right?). Turns out it only accepts values 0-2,  compress=<0,1,2>. Whoops! 
 
 ```
  > [builder 2/2] RUN jlink     --add-modules java.base     --strip-debug     --no-man-pages     --no-header-files     --compress=9     --vm=server     --output /customjre:
