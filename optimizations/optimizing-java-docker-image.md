@@ -203,6 +203,9 @@ This two-stage approach is like cooking in the kitchen but only bringing the fin
 Did we go back to jdk? Yes we did! However, we still managed to end up with a small application image. How did that happen? Magic!
 
 ## Oops! Things I Learned the Hard Way
+
+> “A recipe has no soul. You as the cook must bring soul to the recipe.” – Thomas Keller
+
 This journey wasn't without a few facepalm moments:
 
 * **Compression Confusion**: I initially tried `--compress=9` with jlink (more is better, right?). Turns out it only accepts values 0-2,  compress=<0,1,2>. Whoops! 
@@ -221,8 +224,6 @@ This journey wasn't without a few facepalm moments:
 
 * **innocuous and useless **: attmepts adding `--vm=server` ,  "--no-man-pages" didin't result in anything different. I expected the application image to be smaller though.
 
-“A recipe has no soul. You as the cook must bring soul to the recipe.”
-– Thomas Keller
 
 ## The Before & After
 
