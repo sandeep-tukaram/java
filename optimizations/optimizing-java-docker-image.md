@@ -1,6 +1,6 @@
 # Slimming Down Java Docker Images: A Friendly Guide
 
-Hey there, fellow Docker enthusiast! 👋 Today I want to chat about something that's bothered me for ages - those hefty Java Docker images. You know what I'm talking about, right? You create a simple "Hello World" app and somehow end up with a 400MB Docker image! Let's fix that together.
+Hey there, fellow Docker enthusiast! 👋 Today I want to chat about something that bothered me in my earlier days of docker usage - those hefty Java Docker images. You know what I'm talking about, right? You create a simple "Hello World" app and somehow end up with a 400MB Docker image! Let's fix that together.
 
 ## Our Little Java App
 
