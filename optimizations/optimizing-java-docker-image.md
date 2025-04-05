@@ -145,7 +145,7 @@ ENTRYPOINT ["java", "-jar", "hello.jar"]
 
 This doesn't reduce our image size and more importantly doesn't add to the image size. But hey, security matters too!
 
-## The Magic Trick: Custom JRE with jlink
+## The Magic: Custom JRE with jlink
 
 Now for my favorite part! What if I told you we could create a custom Java runtime with *just* the parts our app actually needs? That's exactly what `jlink` does:
 
