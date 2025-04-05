@@ -19,7 +19,7 @@ public class hello {
 }
 ```
 
-Nothing fancy here - just greeting the world and letting everyone know we're on an optimization mission today! That `flush()` call makes sure our message appears immediately in container logs.
+Nothing fancy here - just greeting the world and letting everyone know we're on an optimization mission today!
 
 Let's check the actual size of our compiled app:
 
