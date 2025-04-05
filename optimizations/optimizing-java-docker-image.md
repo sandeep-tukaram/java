@@ -198,7 +198,7 @@ $ docker build . -t hello1-java
 This two-stage approach is like cooking in the kitchen but only bringing the finished dish to the table. We end up with just 132MB - a whopping 5X reduction from where we started! 🎉
 
 ## I feel what you feel  
-Did we go back to jdk? Yes we did! However, we still managed to end up with a small application image. How did that happen ?
+Did we go back to jdk? Yes we did! However, we still managed to end up with a small application image. How did that happen? Magic!
 
 ## Oops! Things I Learned the Hard Way
 This journey wasn't without a few facepalm moments:
