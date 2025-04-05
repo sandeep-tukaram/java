@@ -72,7 +72,7 @@ Yikes! We're looking at a 704MB+ image and more than 3 minutes of build time. Th
 A quick win is switching to Alpine Linux. It's like the difference between checking a suitcase for a flight versus just bringing a backpack:
 
 ```dockerfile
-FROM eclipse-temurin:21-jdk-alpine              # Change base image to alpine
+FROM eclipse-temurin:21-jdk-alpine              
 
 WORKDIR /app
 COPY hello.jar /app/
