@@ -221,6 +221,8 @@ This journey wasn't without a few facepalm moments:
 
 * **innocuous and useless **: attmepts adding `--vm=server` ,  "--no-man-pages" didin't result in anything different. I expected the application image to be smaller though.
 
+“A recipe has no soul. You as the cook must bring soul to the recipe.”
+– Thomas Keller
 
 ## The Before & After
 
