@@ -1,6 +1,9 @@
 # Slimming Down Java Docker Images: A Friendly Guide
 
-Hey there, fellow Docker enthusiast! 👋 Today I want to chat about something that had bothered me in the past - those hefty Java Docker images. You know what I'm talking about, right? You create a simple "Hello World" app and somehow end up with nearly half a TB of Docker image! To put it in perspective, Apple sells an upgrade of 250MB for about INR 20,000. Half a TB, if it were for Apple, would cost whooping INR 40,000. That's crazy cost to print a helloworld!!! Let's fix that together -  optimize as much as possible. [Jump to the results](#the-before--after)
+Hey there, fellow Docker enthusiast! 👋 Today I want to chat about something that had bothered me in the past - those hefty Java Docker images. You know what I'm talking about, right? You create a simple "Hello World" app and somehow end up with nearly half a TB of Docker image! To put it in perspective, Apple sells an upgrade of 250MB for about INR 20,000. Half a TB, if it were for Apple, would cost whooping INR 40,000. That's crazy cost to print a helloworld!!! Let's fix that together -  optimize as much as possible. 
+
+- [Jump to the results](#the-before--after)
+- [Code](https://github.com/sandeep-tukaram/java)
 
 ## Our Little Java App
 
