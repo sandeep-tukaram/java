@@ -62,18 +62,17 @@ $ docker build . -t hello1-java
 $ docker images 
 REPOSITORY    TAG       IMAGE ID       CREATED              SIZE
 hello1-java   latest    7104f6490ae9   About a minute ago   704MB
+
 ```
 
-Yikes! We're looking at a 704MB+ image and more than 3 minutes of build time. That's like using a moving truck to deliver a postcard. And a damn slow one.  🚚  
+Yikes! We're looking at a 704MB+ image and more than 3 minutes of build time. That's like using a moving truck to deliver a postcard.  🚚  
 
-Imagine yourself in a prodcution scenario, on a call with who not's of managers constantly quering - "How much longer?" All that  hype around Docker for this !?
-
-## Let's Trim Some Fat: Alpine Version
+## Trim Some Fat: Alpine Version
 
 A quick win is switching to Alpine Linux. It's like the difference between checking a suitcase for a flight versus just bringing a backpack:
 
 ```dockerfile
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine              # Change base image to alpine
 
 WORKDIR /app
 COPY hello.jar /app/
@@ -81,7 +80,19 @@ COPY hello.jar /app/
 ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
-Just like that, we've shaved off about 150MB! Our image is now around 200MB. Not bad for a one-line change, right?
+The results:
+```
+$ docker build . -t hello1-java                                  
+[+] Building 129.9s (8/8) FINISHED                                                                                 docker:desktop-linux
+
+
+$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello1-java   latest    c6d19d8c8076   2 minutes ago   550MB
+
+```
+
+Just like that, we've shaved off about 150MB! Our image is now around 550MB. Not bad for a one-line change, right?
 
 ## Why Bring Tools We Don't Need?
 
