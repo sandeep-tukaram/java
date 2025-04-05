@@ -3,11 +3,12 @@ FROM eclipse-temurin:21-jdk-alpine AS builder
 
 # Create a minimal JRE
 RUN jlink \
-    --add-modules java.base \
+    --add-modules java.base \           
     --strip-debug \
     --no-man-pages \
     --no-header-files \
     --compress=2 \
+    --no-man-pages \
     --output /customjre
 
 # Stage 2: Create the final image

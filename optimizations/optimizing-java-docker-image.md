@@ -183,21 +183,44 @@ USER javauser
 ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
-This two-stage approach is like cooking in the kitchen but only bringing the finished dish to the table. We end up with just 127MB - a whopping 64% reduction from where we started! 🎉
+Drumrollss please... 
+```
+$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello1-java   latest    ad42d514d4b7   7 seconds ago   132MB
+
+
+$ docker build . -t hello1-java      
+[+] Building 44.9s (13/13) FINISHED                                                                                docker:desktop-linux
+
+```
+
+This two-stage approach is like cooking in the kitchen but only bringing the finished dish to the table. We end up with just 132MB - a whopping 5X reduction from where we started! 🎉
+
+## I feel what you feel  
+Did we go back to jdk? Yes we did! However, we still managed to end up with a small application image. How did that happen ?
 
 ## Oops! Things I Learned the Hard Way
-
 This journey wasn't without a few facepalm moments:
 
-* **Compression Confusion**: I initially tried `--compress=9` with jlink (more is better, right?). Turns out it only accepts values 0-2. Whoops!
+* **Compression Confusion**: I initially tried `--compress=9` with jlink (more is better, right?). Turns out it only accepts values 0-2. --compress=<0|1|2> Whoops! 
 
-* **The Silent Container**: Our container ran but didn't say anything! Adding that `System.out.flush()` fixed it. Sometimes containers need a little nudge to be chatty.
+```
+ > [builder 2/2] RUN jlink     --add-modules java.base     --strip-debug     --no-man-pages     --no-header-files     --compress=9     --vm=server     --output /customjre:
+0.156 Error: Invalid compression level 9
+```
 
-* **VM Option Mishap**: I tried adding `--vm=server` to jlink because I thought it would optimize performance, but this option caused the build to fail in the Alpine environment. The server VM isn't compatible with all platforms, especially minimal ones like Alpine.
+* **The Silent Container**: Our container ran but didn't say anything! Adding that `System.out.flush()` fixed it. Sometimes containers need a little nudge to be chatty. Try without flush() on your system. It may work.
 
-* **No-Fallback Fiasco**: Another attempt was adding `--no-fallback` to prevent jlink from including extra modules "just in case." Unfortunately, this made our tiny app unable to start because it was being too strict about dependencies. Sometimes being too minimal backfires!
+* **No-Fallback Fiasco**: Another attempt was adding `--no-fallback` to prevent jlink from including extra modules "just in case." Threw unknown option. Not everything found on internet works. In fact check on locak, the command indeed has no such options.
 
-* **The Mystery of Commented Code**: At one point, our print statement was actually commented out in the source code. No wonder it was quiet! Always check the basics first.
+```
+ > [builder 2/2] RUN jlink     --add-modules java.base     --strip-debug     --no-man-pages     --no-header-files     --compress=2     --vm=server     --no-fallback     --output /customjre:
+0.131 Error: unknown option: --no-fallback
+```
+
+* **vm seleection**: Another attempt was adding `--vm=server` resulted in the same size. I expected it to be smaller though.
+
 
 ## The Before & After
 
@@ -205,12 +228,12 @@ Let's see what we accomplished:
 
 | Approach | Size | What We Saved |
 |----------|------|---------------|
-| Standard JDK | ~350MB | Our starting point |
-| Alpine JDK | ~200MB | 150MB (43% smaller!) |
-| Alpine JRE | ~170MB | 180MB (51% smaller!) |
-| Custom JRE | ~127MB | 223MB (64% smaller!) |
+| Standard JDK | ~700MB | Our starting point |
+| Alpine JDK | ~550MB | 20% smaller! |
+| Alpine JRE | ~280MB | 60% smaller! |
+| Custom JRE | ~130MB | 80% smaller or 5X! |
 
-That's like going from sending an email with a massive attachment to just sending a text message. So much more efficient!
+Finally, from a truck to a two-wheeler to send the postcard. Sounds right!
 
 ## Takeaways for Your Own Projects
 
@@ -228,10 +251,10 @@ Here's what I'll remember for next time:
 I'm thinking about:
 * Trying GraalVM native images (they can be even tinier!)
 * Setting up multi-arch builds (arm64 and amd64)
-* Adding security scanning to catch vulnerabilities
+* Adding security scanning to catch vulnerabilities - is it really safe?
 * Exploring distroless containers
 
-What optimization tricks have you discovered? Drop me a comment - I'd love to hear about your container-slimming adventures!
+What optimization tricks have you discovered? Drop me a comment (github) - I'd love to hear about your container-slimming adventures!
 
 ---
 
