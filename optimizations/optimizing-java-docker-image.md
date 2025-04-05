@@ -12,7 +12,6 @@ package hello1;
 public class hello {
     public static void main(String[] args) {
         System.out.println("Greetings World! Let's optimize our java packaging today.");
-        System.out.flush();
     }
 }
 ```
@@ -210,8 +209,6 @@ This journey wasn't without a few facepalm moments:
 0.156 Error: Invalid compression level 9
 ```
 
-* **The Silent Container**: Our container ran but didn't say anything! Adding that `System.out.flush()` fixed it. Sometimes containers need a little nudge to be chatty. Try without flush() on your system. It may work.
-
 * **No-Fallback Fiasco**: Another attempt was adding `--no-fallback` to prevent jlink from including extra modules "just in case." Threw unknown option. Not everything found on internet works. In fact check on locak, the command indeed has no such options.
 
 ```
@@ -219,7 +216,7 @@ This journey wasn't without a few facepalm moments:
 0.131 Error: unknown option: --no-fallback
 ```
 
-* **vm seleection**: Another attempt was adding `--vm=server` resulted in the same size. I expected it to be smaller though.
+* **innocuous and useless **: attmepts adding `--vm=server` ,  "--no-man-pages" didin't result in anything different. I expected the application image to be smaller though.
 
 
 ## The Before & After

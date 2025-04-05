@@ -8,7 +8,6 @@ RUN jlink \
     --no-man-pages \
     --no-header-files \
     --compress=2 \
-    --no-man-pages \
     --output /customjre
 
 # Stage 2: Create the final image
