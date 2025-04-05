@@ -81,6 +81,7 @@ ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
 The results:
+
 ```
 $ docker build . -t hello1-java                                  
 [+] Building 129.9s (8/8) FINISHED                                                                                 docker:desktop-linux
@@ -107,7 +108,18 @@ COPY hello.jar /app/
 ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
-Another 30MB gone! We're down to about 170MB now. It's like realizing you don't need to bring your entire toolbox when you just need a screwdriver. 🔧
+Drumroll results! 
+```
+$ docker build . -t hello1-java      
+[+] Building 39.2s (8/8) FINISHED                                                                                  docker:desktop-linux
+
+$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello1-java   latest    9c43612a462f   4 seconds ago   282MB
+
+```
+
+Almost half gone - 2X ! We're down to about 282MB now. You don't need to bring your entire toolbox when all that is needed is a screwdriver. 🔧 Great! 
 
 ## Safety Break: Let's Not Run as Root
 
@@ -129,7 +141,7 @@ USER javauser
 ENTRYPOINT ["java", "-jar", "hello.jar"]
 ```
 
-This doesn't reduce our image size, but hey, security matters too!
+This doesn't reduce our image size and more importantly doesn't add to the image size. But hey, security matters too!
 
 ## The Magic Trick: Custom JRE with jlink
 
