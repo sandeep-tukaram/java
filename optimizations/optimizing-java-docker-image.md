@@ -212,7 +212,7 @@ This journey wasn't without a few facepalm moments:
 0.156 Error: Invalid compression level 9
 ```
 
-* **No-Fallback Fiasco**: Another attempt was adding `--no-fallback` to prevent jlink from including extra modules "just in case." Threw unknown option. Not everything found on internet works. In fact check on locak, the command indeed has no such options.
+* **No-Fallback Fiasco**: Another attempt was adding `--no-fallback` to prevent jlink from including extra modules "just in case." Threw unknown option. Not everything found on internet works. Check command line help or documentation before applying options.
 
 ```
  > [builder 2/2] RUN jlink     --add-modules java.base     --strip-debug     --no-man-pages     --no-header-files     --compress=2     --vm=server     --no-fallback     --output /customjre:
