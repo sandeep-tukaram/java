@@ -57,7 +57,7 @@ Lets build an image
 
 ```
 $ docker build . -t hello1-java
-[+] Building 180.7s (8/8) FINISHED                                                                                 docker:desktop-linux
+[+] Building 180.7s (8/8) FINISHED                                                              docker:desktop-linux
 ...
  => [1/3] FROM docker.io/library/eclipse-temurin:21-jdk@sha256:6634936b2e8d90ee16eeb94420d71cd5e36ca677a4cf795a9ee1ee6e94379988  177.3s
 
@@ -86,7 +86,7 @@ The results:
 
 ```
 $ docker build . -t hello1-java                                  
-[+] Building 129.9s (8/8) FINISHED                                                                                 docker:desktop-linux
+[+] Building 129.9s (8/8) FINISHED                                                              docker:desktop-linux
 
 
 $ docker images
@@ -113,7 +113,7 @@ ENTRYPOINT ["java", "-jar", "hello.jar"]
 Drumroll results! 
 ```
 $ docker build . -t hello1-java      
-[+] Building 39.2s (8/8) FINISHED                                                                                  docker:desktop-linux
+[+] Building 39.2s (8/8) FINISHED                                                             docker:desktop-linux
 
 $ docker images
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
@@ -193,7 +193,7 @@ hello1-java   latest    ad42d514d4b7   7 seconds ago   132MB
 
 
 $ docker build . -t hello1-java      
-[+] Building 44.9s (13/13) FINISHED                                                                                docker:desktop-linux
+[+] Building 44.9s (13/13) FINISHED                                                   docker:desktop-linux
 
 ```
 
